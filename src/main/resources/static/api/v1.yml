@@ -1,0 +1,425 @@
+openapi: 3.0.1
+info:
+  title: Smart Home
+  description: 'This application gives the possibility to manage a house via http interface'
+  contact:
+    url: https://github.com/rodislav/smart-home
+  version: 0.1.0
+servers:
+  - url: http://localhost:8080/api/v1
+tags:
+  - name: houses
+    description: Manage houses
+  - name: rooms
+    description: Manage rooms
+paths:
+  /houses:
+    post:
+      tags:
+        - houses
+      summary: Create new house
+      operationId: createHouse
+      requestBody:
+        description: A house object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/House'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/House'
+        400:
+          description: Bad request, check the response body for details
+          content: {}
+  /houses/{id}:
+    get:
+      tags:
+        - houses
+      summary: Get a house by Id
+      description: Returns a single house
+      operationId: getHouseById
+      parameters:
+        - name: id
+          in: path
+          description: Id of House to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/jon:
+              schema:
+                $ref: '#/components/schemas/House'
+        400:
+          description: No house found with id - 'id'
+    put:
+      tags:
+        - houses
+      summary: Update a house by Id
+      description: Returns updated house
+      operationId: updateHouseById
+      parameters:
+        - name: id
+          in: path
+          description: Id of House to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: A house object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/House'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/House'
+        400:
+          description: Bad request, check the response body for details
+          content: {}
+    delete:
+      tags:
+        - houses
+      summary: Delete a house by Id
+      description: Return nothing
+      operationId: deleteHouseById
+      parameters:
+        - name: id
+          in: path
+          description: Id of House to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Bad request, check the response body for details
+          content: {}
+  /rooms:
+    post:
+      tags:
+        - rooms
+      summary: Create new room
+      operationId: create
+      requestBody:
+        description: A room object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Room'
+        400:
+          description: Bad request, check the response body for details
+          content: {}
+  /rooms/{id}:
+    get:
+      tags:
+        - rooms
+      summary: Get a room by Id
+      description: Returns a single room
+      operationId: show
+      parameters:
+        - name: id
+          in: path
+          description: Id of Room to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/jon:
+              schema:
+                $ref: '#/components/schemas/Room'
+        400:
+          description: No room found with id - 'id'
+    put:
+      tags:
+        - rooms
+      summary: Update a room by Id
+      description: Returns updated room
+      operationId: update
+      parameters:
+        - name: id
+          in: path
+          description: Id of Room to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: A room object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Room'
+        400:
+          description: Bad request, check the response body for details
+          content: {}
+    delete:
+      tags:
+        - rooms
+      summary: Delete a room by Id
+      description: Return nothing
+      operationId: destroy
+      parameters:
+        - name: id
+          in: path
+          description: Id of Room to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Bad request, check the response body for details
+          content: {}
+  /devices:
+    post:
+      tags:
+        - Devices
+      summary: Create new Device
+      requestBody:
+        description: A Device object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Device'
+        400:
+          description: Bad request, check the response body for details
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Error'
+  /devices/{id}:
+    get:
+      tags:
+        - Devices
+      summary: Get a Device by Id
+      description: Returns a single Device
+      parameters:
+        - name: id
+          in: path
+          description: Id of Device to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/jon:
+              schema:
+                $ref: '#/components/schemas/Device'
+        400:
+          description: No device found with id - 'id'
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Devices
+      summary: Update a Device by Id
+      description: Returns updated device
+      parameters:
+        - name: id
+          in: path
+          description: Id of Device to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: A device object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Device'
+        400:
+          description: Bad request, check the response body for details
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Error'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - Devices
+      summary: Delete a Device by Id
+      description: Return nothing
+      parameters:
+        - name: id
+          in: path
+          description: Id of Device to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        202:
+          description: acknowledged operation but not processed
+          content: {}
+        400:
+          description: Bad request, check the response body for details
+          content: {}
+components:
+  schemas:
+    House:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          format: My summer house
+        street:
+          type: string
+          format: Montée Haute
+        number:
+          type: string
+          format: date-time
+        postCode:
+          type: string
+          description: L-6969
+      xml:
+        name: Order
+    Room:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        houseId:
+          type: integer
+          format: int64
+        name:
+          type: string
+          format: My room
+      xml:
+        name: Room
+    Device:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        roomId:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          format: Device Name
+          example: My Device Name
+        Icon:
+          type: string
+          example: link/or/path/to/asset/
+        status:
+          type: integer
+          format: int64
+          example: 1
+      xml:
+        name: Device
+    Error:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          example: 2020-01-28T19:12:34.536+0000
+        status:
+          type: string
+          example: 404
+        error:
+          type: string
+          example: Some Error
+        message:
+          type: string
+          example: Some error message
+        path:
+          type: string
+          example: /api/v1
