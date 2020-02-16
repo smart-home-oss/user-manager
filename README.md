@@ -17,14 +17,14 @@ There are 2 main ways to run the app.
 #### Java app + Docker infra
 ```bash
 docker-compose up -d;
-export.sh;
+mysql-setup.sh;
 mvn clean package spring-boot:run;
 ```
 
 #### Docker app and infra
 ```bash
 docker-compose build;
-export.sh;
+mysql-setup.sh;
 docker-compose up -d;
 ```
 
