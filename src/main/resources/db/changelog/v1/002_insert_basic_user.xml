@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
     <changeSet id="1" author="rodi">
-        <insert tableName="USER" schemaName="SMART-HOME">
+        <insert tableName="USER" schemaName="smarthome_usermanager">
             <column name="name" value="rodi"/>
         </insert>
     </changeSet>

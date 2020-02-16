@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# so far, this script is failing due to permission denied error /tmp/Master.json
+
 KEYCLOACK_CONTAINER_NAME=keycloak-um-shoss
 REAL_NAME=Master
 
