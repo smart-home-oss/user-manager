@@ -1,0 +1,15 @@
+@startuml
+actor Alice
+control "user-manager" as user
+control "Oauth2 Provider (keycloak)" as oauth2
+
+Alice -> user: user/login
+user --> Alice: redirect to oauth2
+Alice -> oauth2: login page from oauth2 + user / password
+oauth2 --> Alice: goto user/login/handle?token
+Alice -> user: auto redirect token
+user -> oauth2: token validate
+oauth2 --> user: jwt token + refresh token
+user --> Alice: JSESSIONID
+
+@enduml

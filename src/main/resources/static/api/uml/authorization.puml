@@ -1,0 +1,12 @@
+@startuml
+actor Alice
+control "house-manager" as house
+control "ACL provider" as acl
+
+Alice -> house: read house/houseId + token
+house -> acl: can (token) -> access (houseId)
+acl --> house: access_level: read
+house --> Alice: houseDTO
+
+
+@enduml
