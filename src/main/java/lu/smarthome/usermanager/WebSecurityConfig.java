@@ -2,6 +2,7 @@ package lu.smarthome.usermanager;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,11 +16,11 @@ import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserServ
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.security.oauth2.jwt.*;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtDecoderFactory;
+import org.springframework.security.oauth2.jwt.JwtDecoders;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 
 import static java.util.Collections.singletonList;
 
@@ -28,6 +29,9 @@ import static java.util.Collections.singletonList;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final ObjectMapper objectMapper;
     private final RestTemplateBuilder restTemplateBuilder;
+
+    @Value("${app.oauth2.issuer}")
+    private String issuer;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -42,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public JwtDecoderFactory<ClientRegistration> jwtDecoderFactory() {
-        final JwtDecoder decoder = JwtDecoders.fromIssuerLocation("http://rodislav.com:8887/auth/realms/smart-house-oss");
+        final JwtDecoder decoder = JwtDecoders.fromIssuerLocation(issuer);
         return context -> decoder;
 
     }
