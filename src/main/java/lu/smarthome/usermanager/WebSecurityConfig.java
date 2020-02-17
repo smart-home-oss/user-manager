@@ -42,12 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public JwtDecoderFactory<ClientRegistration> jwtDecoderFactory() {
-        final JwtDecoder decoder = new JwtDecoder() {
-            @Override
-            public Jwt decode(String token) throws JwtException {
-                return null;
-            }
-        };
+        final JwtDecoder decoder = JwtDecoders.fromIssuerLocation("http://rodislav.com:8887/auth/realms/smart-house-oss");
         return context -> decoder;
 
     }
