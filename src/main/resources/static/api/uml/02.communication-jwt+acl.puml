@@ -1,0 +1,14 @@
+@startuml
+actor Alice
+control "House Manager" as house_manager
+control "User Manager" as user_manager
+control "Keycloak (Oauth2 Provider)" as oauth2
+
+Alice -> house_manager: get houses + JWT access token
+house_manager -> oauth2: validate token
+oauth2 --> house_manager: ok
+house_manager -> user_manager: ACL check rights for Alice
+user_manager --> house_manager: ok
+house_manager --> Alice: houses[]
+
+@enduml

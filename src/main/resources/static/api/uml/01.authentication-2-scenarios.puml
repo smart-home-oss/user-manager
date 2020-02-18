@@ -1,0 +1,59 @@
+@startuml
+actor Alice
+control "User Manager" as user_manager
+control "OAuth2 OIDC Bridge" as bridge
+control "Keycloak (Oauth2 Provider)" as oauth2
+
+alt WEB + NATIVE, Get JWT token via API call
+
+Alice -> user_manager: <font color=green><b>get JWT\n<font color=red><b>user + password
+activate Alice #FFBBBB
+
+activate user_manager #FFBBBB
+user_manager -> oauth2: get JWT token\nuser + password + secret
+
+activate oauth2 #FFBBBB
+oauth2 --> user_manager: return JWT\naccess + refresh tokens
+deactivate oauth2
+
+user_manager --> Alice: <font color=blue><b>return JWT\n<font color=blue><b>access + refresh tokens
+deactivate user_manager
+
+deactivate Alice
+
+end
+
+alt WEB, Get JWT token via OAuth2 OpenID connect, page redirection
+
+Alice -> bridge: access {page}
+activate Alice #FFFFCC
+
+activate bridge #FFFFCC
+bridge --> Alice: redirect to login page\nof the authentication provider
+deactivate bridge
+
+Alice -> oauth2: access the redirected page\nfill login form\nwith user + password and submit
+activate oauth2 #FFFFCC
+
+oauth2 --> oauth2: authenticate
+oauth2 --> Alice: redirect to login page\nof the bridge
+deactivate oauth2
+
+Alice -> bridge: access the redirected page\nwhich contains { auth data } in URI
+activate bridge #FFFFCC
+bridge -> oauth2: get the JWT for the { auth data }
+activate oauth2 #FFFFCC
+oauth2 --> bridge: return JWT\naccess + refresh tokens
+deactivate oauth2
+
+bridge --> bridge: generate JSESSIONID\nand map it to JWT
+bridge --> Alice: return Cookie: JSESSIONID=FA56F0...
+deactivate bridge
+
+Alice -> bridge: <font color=green><b>get JWT\n<font color=red><b>use Cookie: JSESSIONID=FA56F0...
+activate bridge #FFFFCC
+bridge --> Alice: <font color=blue><b>return JWT\n<font color=blue><b>access + refresh tokens
+deactivate bridge
+deactivate Alice
+end
+@enduml
