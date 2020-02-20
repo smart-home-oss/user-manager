@@ -1,36 +1,25 @@
 # user-manager
 
-## Setup
+[![Build Status](https://travis-ci.com/smart-home-oss/house-manager.svg?branch=master)](https://travis-ci.com/smart-home-oss/house-manager)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=smart-home-oss_house-manager&metric=alert_status)](https://sonarcloud.io/dashboard?id=smart-home-oss_house-manager)
 
-### Local files location
+## System requirements
 
-By default the app will save it's files under: 
+1. Java Development Kit 8+
+1. Maven, 
+    - _optionally you can use `mvnw`_
+1. Docker
+1. `docker-compose`
+1. Postman
 
-`/home/$USER/.smart-home`
+## Docs
 
-While `$USER` is the currently logged user.
+The project docs are located under: `/docs`. 
+They are split if dedicated files per topic.
 
-### Run / Build
+## Infrastructure
 
-There are 2 main ways to run the app.
+The app requires couple of external dependencies to run: 
+database and authentication server.
 
-#### Java app + Docker infra
-```bash
-docker-compose up -d;
-mysql-setup.sh;
-mvn clean package spring-boot:run;
-```
-
-#### Docker app and infra
-```bash
-docker-compose build;
-mysql-setup.sh;
-docker-compose up -d;
-```
-
-## Links
-
-1. [Understanding OAuth2 and Building a Basic Authorization Server of Your Own](https://medium.com/google-cloud/understanding-oauth2-and-building-a-basic-authorization-server-of-your-own-a-beginners-guide-cf7451a16f66)
-1. [Run a single MySQL query from the command line](https://electrictoolbox.com/run-single-mysql-query-command-line/)
-1. [MySQL :: Connection URL Syntax](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html)
-1. [Keycloak Docker image](https://hub.docker.com/r/jboss/keycloak/)
+The files that are launching that are located under: `/infra`

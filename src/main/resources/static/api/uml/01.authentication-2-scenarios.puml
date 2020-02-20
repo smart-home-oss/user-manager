@@ -10,7 +10,7 @@ Alice -> user_manager: <font color=green><b>get JWT\n<font color=red><b>user + p
 activate Alice #FFBBBB
 
 activate user_manager #FFBBBB
-user_manager -> oauth2: get JWT token\nuser + password + secret
+user_manager -> oauth2: get JWT token\nuser + password + client id + client secret
 
 activate oauth2 #FFBBBB
 oauth2 --> user_manager: return JWT\naccess + refresh tokens

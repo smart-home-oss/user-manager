@@ -23,10 +23,4 @@ public class RootController {
     public RedirectView redirectApiToSwagger() {
         return new RedirectView(defaultApiSpecUri + "/me");
     }
-
-    @GetMapping("${app.api.version.default}/me")
-    public Principal getMe(Principal p) {
-        return p;
-    }
-
 }
