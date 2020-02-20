@@ -6,13 +6,12 @@ services:
     container_name: user-manager-um-shoss
     build:
       dockerfile: Dockerfile
-    environment:
-      OAUTH_CLIENT_ID: user-manager
-      OAUTH_CLIENT_PASSWORD: qqqqq
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.user.rule=Host(`user.localhost`)"
       - "traefik.http.routers.user.entrypoints=web"
+    ports:
+      - 7001:7001
 
 networks:
   smarthomeoss:
