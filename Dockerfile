@@ -1,6 +1,7 @@
 FROM adoptopenjdk:11-jre-hotspot
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY target/app.jar app.jar
+
+ENV APP_OPTIONS "-Xms64m -Xmx256m"
+
+ENTRYPOINT exec java $APP_OPTIONS -jar /app.jar
