@@ -23,12 +23,12 @@ public class KeycloakAuthentication implements Authentication {
 
     @Override
     public Object getCredentials() {
-        return null;
+        return keycloakResponse.getAccess_token();
     }
 
     @Override
     public Object getDetails() {
-        return null;
+        return this.keycloakResponse;
     }
 
     @Override
@@ -43,11 +43,10 @@ public class KeycloakAuthentication implements Authentication {
 
     @Override
     public void setAuthenticated(boolean b) throws IllegalArgumentException {
-
     }
 
     @Override
     public String getName() {
-        return this.getName();
+        return keycloakResponse.getAccess_token();
     }
 }

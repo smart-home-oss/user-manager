@@ -2,17 +2,18 @@ package lu.smarthome.usermanager.security;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
 
-
-@Entity
 @Getter
 @Setter
+@Component
+@ConfigurationProperties("app.keycloak")
 public class KeycloakProperties {
     private String clientId;
     private String clientSecret;
-    private String accessTokenUri;
+    private String accessTokenUrl;
     private String tokenName;
     private String scope;
     private String userInfoUri;
