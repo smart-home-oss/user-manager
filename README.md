@@ -19,7 +19,5 @@ They are split if dedicated files per topic.
 
 ## Infrastructure
 
-The app requires couple of external dependencies to run: 
-database and authentication server.
-
-The files that are launching that are located under: `/infra`
+The files that are launching the required dependencies 
+are located in a dedicated repository: [smart-home-oss/infra](https://github.com/smart-home-oss/infra)
