@@ -28,7 +28,7 @@ class AuthenticationControllerTest {
     void authenticate() throws Exception {
         mvc.perform(
                 get("/authenticate"))
-                .andExpect(status().is(HttpStatus.OK.value()));
+                .andExpect(status().is(HttpStatus.OK    .value()));
     }
 
     @Test
