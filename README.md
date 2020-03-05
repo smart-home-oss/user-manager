@@ -1,7 +1,7 @@
 # user-manager
 
-[![Build Status](https://travis-ci.com/smart-home-oss/house-manager.svg?branch=master)](https://travis-ci.com/smart-home-oss/house-manager)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=smart-home-oss_house-manager&metric=alert_status)](https://sonarcloud.io/dashboard?id=smart-home-oss_house-manager)
+[![Build Status](https://travis-ci.com/smart-home-oss/user-manager.svg?branch=master)](https://travis-ci.com/smart-home-oss/user-manager)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=smart-home-oss_user-manager&metric=alert_status)](https://sonarcloud.io/dashboard?id=smart-home-oss_user-manager)
 
 ## System requirements
 
