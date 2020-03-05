@@ -3,16 +3,16 @@ jdk: openjdk11
 
 cache:
   directories:
-    - $HOME/.m2
+    - "$HOME/.m2"
 
 env:
   global:
-    - secure: "WqFdF9f4n45hzuYxYufIMZ3+CeVdDf1zIK1M3R8WHQFixszdQGS/JhQMiUdzd//jzpwSx4SnkJZSxxidVPGKNBCtBG9OBdIPza580EntYHqlcG6EfBfwNuym5rcXBOb355Rg8wODsQAL3Sujh1DxY9tfwthrAM5Q8DccwILwWOWLwzI3jNtkzrGi1TasULnG9myKdMjBKT9nGbHciwD0VN2eely0JdC4nq7Ux03sr3BhEKXlxkf3HWnEEdS7VJ3dO3yRohaVSvGJRU+jzfcl7Ac4/NSnz87VAqlu6h6Xzij8GGFLWQBj4YOW2QOTvM3kkh3bEqCA77R17T1lvL1EFVDhTjS6pRcZ5ofObJmN37QBsQXtkZryw6O1sxHuoZ3oJl84QVr8r7LpUOjafqJlvsUwvbcUep0bx0rAFR/4dby/SI3AkLOPPx7sFXIgQHmSeC5DzcpJUebdj78WxVyZsr7MNs7i99fJyn70TchOOpYSbJff2HseQxk8APMHsuYd6/9vGv8Xx3rs2PeXvtWepbOVG3hcb2MfAnPfmXSX2cw0gVMFwpYX8jlpYRdQug27/Kw2xVSjgV2CRUVUcyogz+ULv5KsUvvi5ad8LoLYr5wRVnsxWZYg+C4cblFWfpPGavcIbEmh3Z+Py6+IBFaDmHpjyfQzN8hvz6rcHgVrhUI="
+    secure: VImghFV6HyIO2Fgxg2V9S32qG3/VKoz6tJGxjL8/+xec7L0pqreOPEsDyAj8Yiy5ARA//gcMPdBc4raV0VnnF+CUfwpZFXzwVopSy9FBzgXIh0WOKdmbLo8GbNnagYbXO1IUhs5feHPHr4WKymjCb3dVd1P4bTGIYspW3vnJgVFUTo7N0PmESXtMTWMc2c/WXk10MV0LFW1QhLyv9AON0QFX/Uy9JK2t1/hsSWj/TAmuW7RGJXpeEpoKYnzptuC6Qpnca4E973ZbbfaPOBlnPqPMC+AHGQ8PfQfJSp14tLtWuEoAK9oFhYFzJI0LAZvIgsGPfq7p2ssd6Qs5dS9ty/zHh95JlS5P8EtPj+51aHxONbvvNaKoUUP/T6kSe9HN4cLW0zXJRsC9CVbl2UKiYZjfoP79tno8880W/8bhL9jD0sq0T20Gb9CS5OJj6wuz6IPDOJTQvn0N+IkncnxHjKoCVdjOjYeqN/R21VvwkhWNENnCvTM4qHhImCcGa2YMq65C+g7E5CmYZSv30rK1u/7C2xa4EzEO1xCiUjXpPt7zMH3kWdsUlR1mgXrn33VeLMhN9o3YTBq/JQZUoBo7d5rwnNgkjj+nzMWwsQsa/1sHbU9gXHo98H1huT+XrOCQxRVwWaW5GZEuDix98quToafaAssgixs79nIjV7penaA=
 
 addons:
   sonarcloud:
-    organization: "smart-home-oss"
+    organization: smart-home-oss
     token:
-      secure: $SONAR_KEY_SECURE
+      secure: "$SONAR_KEY_SECURE"
 
 script: mvn verify sonar:sonar -q
