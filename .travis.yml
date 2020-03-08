@@ -7,8 +7,7 @@ cache:
 
 addons:
   sonarcloud:
-    organization: "smart-home-oss"
     token:
       secure: "MifJv6a9qLSDFCI0V2vHzib5qhkr3FUOWmAh/gA1BKnhFfuJsO12Gyg8w60nxZjtystiakN68WLhHKOfIxlCuUpc1NPfj/dp+zsY9/otpGmNZuQZH7MbXygTd+MGBbKYVqJEUe3oKUu7CykNy2QzyK7iFlvrCfuY1uuB5OpuKcWBiLHS08dNuGPhAuGFG+BTibUpxbUbz9QTbEPUZBBH2py45CXS2IS+ecPUD6veBLPWiWcvjuoHqF300tOZzpIiqb5AX1sL4V9j+1sV0XbaiFRkOJqVEiqunod4do/iRHiaDFu+jP91XZBZCAF/iGvVGRmG42ADHjhCsWU6tZKLOKJ6aW8y5N+zavv0zl1xL19sH7YTIQ+tgmX67lF1e23UBQBRA+VHfUChei3l6myoY83q0dITQgX5+KgpF2cEh4i5stZpriaY76Pk7gq5Q+dtAy4LCYibDgqXzj/oLzDjYf5Wv+F5gxuDe9FAzA4pHNlMLPxbkmg1YtwDpy7Uux2ywVo9et1ynk7+1HDeAlsrNQMESZmi1cQ34CkgBSxLw6mEAxakokCvR8Zukx/2PuMTYj89NrWCCm0HEDhp+L5o8Pn/9FPATJgRZuCa4RXdiA7b5+MIfbGdKBYt8SKa633/lopZsi71FXlgOo7CYpR1WXCaypPpUwpxiwudyP31btE="
 
-script: mvn verify sonar:sonar -q -Pcoverage -Dsonar.projectKey=smart-home-oss_user-manager
+script: mvn verify sonar:sonar -q
