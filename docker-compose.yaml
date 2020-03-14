@@ -3,7 +3,7 @@ version: '3'
 services:
   user:
     image: smart-home-oss/user-manager:latest
-    container_name: user-manager-um-shoss
+    container_name: user-manager-shoss
     build: ./
     labels:
       - "traefik.enable=true"
