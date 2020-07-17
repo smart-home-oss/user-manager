@@ -1,12 +1,12 @@
 openapi: 3.0.1
 info:
   title: Smart Home
-  description: 'This application gives the possibility to manage a house via http interface'
+  description: This application gives the possibility to manage a house via http interface
   contact:
-    url: https://github.com/rodislav/smart-home
+    url: 'https://github.com/rodislav/smart-home'
   version: 0.1.0
 servers:
-  - url: http://localhost:8080/api/v1
+  - url: 'http://localhost:8080/api/v1'
 tags:
   - name: houses
     description: Manage houses
@@ -27,7 +27,7 @@ paths:
               $ref: '#/components/schemas/House'
         required: true
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -35,10 +35,10 @@ paths:
                 type: object
                 items:
                   $ref: '#/components/schemas/House'
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content: {}
-  /houses/{id}:
+  '/houses/{id}':
     get:
       tags:
         - houses
@@ -54,14 +54,14 @@ paths:
             type: integer
             format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/jon:
               schema:
                 $ref: '#/components/schemas/House'
-        400:
-          description: No house found with id - 'id'
+        '400':
+          description: "No house found with id - 'id'"
     put:
       tags:
         - houses
@@ -84,7 +84,7 @@ paths:
               $ref: '#/components/schemas/House'
         required: true
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -92,8 +92,8 @@ paths:
                 type: object
                 items:
                   $ref: '#/components/schemas/House'
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content: {}
     delete:
       tags:
@@ -110,11 +110,11 @@ paths:
             type: integer
             format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content: {}
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content: {}
   /rooms:
     post:
@@ -130,7 +130,7 @@ paths:
               $ref: '#/components/schemas/Room'
         required: true
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -138,10 +138,10 @@ paths:
                 type: object
                 items:
                   $ref: '#/components/schemas/Room'
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content: {}
-  /rooms/{id}:
+  '/rooms/{id}':
     get:
       tags:
         - rooms
@@ -157,14 +157,14 @@ paths:
             type: integer
             format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/jon:
               schema:
                 $ref: '#/components/schemas/Room'
-        400:
-          description: No room found with id - 'id'
+        '400':
+          description: "No room found with id - 'id'"
     put:
       tags:
         - rooms
@@ -187,7 +187,7 @@ paths:
               $ref: '#/components/schemas/Room'
         required: true
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -195,8 +195,8 @@ paths:
                 type: object
                 items:
                   $ref: '#/components/schemas/Room'
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content: {}
     delete:
       tags:
@@ -213,11 +213,11 @@ paths:
             type: integer
             format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content: {}
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content: {}
   /devices:
     post:
@@ -232,7 +232,7 @@ paths:
               $ref: '#/components/schemas/Device'
         required: true
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -240,15 +240,15 @@ paths:
                 type: object
                 items:
                   $ref: '#/components/schemas/Device'
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content:
             application/json:
               schema:
                 type: object
                 items:
                   $ref: '#/components/schemas/Error'
-  /devices/{id}:
+  '/devices/{id}':
     get:
       tags:
         - Devices
@@ -263,14 +263,20 @@ paths:
             type: integer
             format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/jon:
               schema:
                 $ref: '#/components/schemas/Device'
-        400:
-          description: No device found with id - 'id'
+            application/javascript:
+              schema:
+                type: object
+                properties:
+                  '':
+                    type: string
+        '400':
+          description: "No device found with id - 'id'"
           content:
             application/json:
               schema:
@@ -298,7 +304,7 @@ paths:
               $ref: '#/components/schemas/Device'
         required: true
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -306,15 +312,15 @@ paths:
                 type: object
                 items:
                   $ref: '#/components/schemas/Device'
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content:
             application/json:
               schema:
                 type: object
                 items:
                   $ref: '#/components/schemas/Error'
-        404:
+        '404':
           description: Not Found
           content:
             application/json:
@@ -336,14 +342,14 @@ paths:
             type: integer
             format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content: {}
-        202:
+        '202':
           description: acknowledged operation but not processed
           content: {}
-        400:
-          description: Bad request, check the response body for details
+        '400':
+          description: 'Bad request, check the response body for details'
           content: {}
 components:
   schemas:
@@ -410,7 +416,7 @@ components:
       properties:
         timestamp:
           type: string
-          example: 2020-01-28T19:12:34.536+0000
+          example: '2020-01-28T19:12:34.536+0000'
         status:
           type: string
           example: 404
