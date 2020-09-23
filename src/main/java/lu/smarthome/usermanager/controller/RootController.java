@@ -1,4 +1,4 @@
-package lu.smarthome.usermanager;
+package lu.smarthome.usermanager.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
