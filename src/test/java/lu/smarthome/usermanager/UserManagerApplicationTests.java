@@ -8,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
-@TestPropertySource(value = {"classpath:application.properties","classpath:application-test.properties"})
 class UserManagerApplicationTests {
 
     @Test
